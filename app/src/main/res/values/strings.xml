@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">KT_08_Productos_BBDD</string>
+    <string name="txtCrearProducto">Crear producto</string>
+    <string name="btnGuardar">Guardar producto</string>
+    <string name="btnVer">Ver productos</string>
+    <string name="hintNombre">Nombre producto</string>
+    <string name="hintPrecio">Precio producto</string>
+    <string name="hintDescripcion">Descripción producto</string>
+</resources>

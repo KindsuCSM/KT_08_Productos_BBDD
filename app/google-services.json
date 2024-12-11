@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "534730073417",
+    "project_id": "kt-08-productos-bbdd",
+    "storage_bucket": "kt-08-productos-bbdd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:534730073417:android:ea8fe0b73acfe4ffa3a698",
+        "android_client_info": {
+          "package_name": "com.example.kt_08_productos_bbdd"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLvPZKtHvBk4jXy-aZZqUJeeXr8h-Q4bM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
