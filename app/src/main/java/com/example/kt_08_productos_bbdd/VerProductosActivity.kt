@@ -16,11 +16,12 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
 class VerProductosActivity : AppCompatActivity() {
-    private lateinit var binding : ActivityVerProductosBinding
-    private lateinit var productosList : ArrayList<Producto>
-    private lateinit var productosRecyclerView : RecyclerView
-    private lateinit var database : DatabaseReference
+    private lateinit var binding: ActivityVerProductosBinding
+    private lateinit var productosList: ArrayList<Producto>
+    private lateinit var productosRecyclerView: RecyclerView
+    private lateinit var database: DatabaseReference
     private lateinit var adapterProducto: AdapterProducto
+    private val productosKeys = arrayListOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,22 +40,43 @@ class VerProductosActivity : AppCompatActivity() {
 
         productosList = arrayListOf<Producto>()
 
-        adapterProducto = AdapterProducto(productosList)
+        adapterProducto = AdapterProducto(
+            context = this,
+            productos = productosList,
+            onClickDelete = { position -> onDeletedItem(position) })
         productosRecyclerView.adapter = adapterProducto
 
         getProductos()
+        initListeners()
     }
 
-    private fun getProductos(){
+    private fun initListeners(){
+        binding.btnVolver.setOnClickListener{
+            onBackPressedDispatcher.onBackPressed()
+        }
+    }
+
+    private fun onDeletedItem(position : Int) {
+        val productoKey = productosKeys[position]
+        database.child("Productos").child(productoKey).removeValue()
+
+        productosList.removeAt(position)
+        productosKeys.removeAt(position)
+        adapterProducto.notifyItemRemoved(position)
+    }
+
+    private fun getProductos() {
         database = FirebaseDatabase.getInstance().getReference("Productos")
 
-        database.addValueEventListener(object: ValueEventListener{
+        database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
                     productosList.clear()
-                    for(productosSnapshot in snapshot.children){
+                    productosKeys.clear()
+                    for (productosSnapshot in snapshot.children) {
                         val producto = productosSnapshot.getValue(Producto::class.java)
                         productosList.add(producto!!)
+                        productosKeys.add(productosSnapshot.key!!)
                     }
                     adapterProducto.notifyDataSetChanged()
                 }
