@@ -42,8 +42,7 @@ class VerProductosActivity : AppCompatActivity() {
 
         adapterProducto = AdapterProducto(
             context = this,
-            productos = productosList,
-            onClickDelete = { position -> onDeletedItem(position) })
+            productos = productosList)
         productosRecyclerView.adapter = adapterProducto
 
         getProductos()
@@ -54,15 +53,6 @@ class VerProductosActivity : AppCompatActivity() {
         binding.btnVolver.setOnClickListener{
             onBackPressedDispatcher.onBackPressed()
         }
-    }
-
-    private fun onDeletedItem(position : Int) {
-        val productoKey = productosKeys[position]
-        database.child("Productos").child(productoKey).removeValue()
-
-        productosList.removeAt(position)
-        productosKeys.removeAt(position)
-        adapterProducto.notifyItemRemoved(position)
     }
 
     private fun getProductos() {

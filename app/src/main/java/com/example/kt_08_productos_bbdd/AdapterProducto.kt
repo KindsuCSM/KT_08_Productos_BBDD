@@ -12,7 +12,6 @@ import com.google.firebase.database.FirebaseDatabase
 
 class AdapterProducto(
     private val productos: ArrayList<Producto>,
-    private val onClickDelete: (Int) -> Unit,
     private val context: Context // Agregar el contexto como parámetro
 ) : RecyclerView.Adapter<AdapterProducto.ViewHolder>() {
 
