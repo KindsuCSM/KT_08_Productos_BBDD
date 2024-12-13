@@ -12,7 +12,7 @@ plugins {
 
 android {
     namespace = "com.example.kt_08_productos_bbdd"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.kt_08_productos_bbdd"
@@ -52,6 +52,9 @@ dependencies {
     // 2 - Añadir implementations de firebase
     implementation(platform("com.google.firebase:firebase-bom:33.7.0"))
     implementation("com.google.firebase:firebase-analytics")
+
+    // No hacer nada hasta que creemos las bases de datos (Sincronizar)
+    implementation(libs.firebase.realtime)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

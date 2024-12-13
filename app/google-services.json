@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "534730073417",
+    "firebase_url": "https://kt-08-productos-bbdd-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "kt-08-productos-bbdd",
     "storage_bucket": "kt-08-productos-bbdd.firebasestorage.app"
   },

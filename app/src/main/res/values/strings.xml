@@ -6,4 +6,11 @@
     <string name="hintNombre">Nombre producto</string>
     <string name="hintPrecio">Precio producto</string>
     <string name="hintDescripcion">Descripción producto</string>
+    <string name="lstProductos">Listado de productos</string>
+    <string name="producto">Producto</string>
+    <string name="nombre">Nombre</string>
+    <string name="precio">Precio</string>
+    <string name="Descripcion">Descripción</string>
+    <string name="btnVolver">Volver</string>
+    <string name="btnEliminar">Eliminar</string>
 </resources>

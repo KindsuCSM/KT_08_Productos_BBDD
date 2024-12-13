@@ -25,6 +25,9 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 # 2 - Añadir firebase-bom (Sincronizar)
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom"}
 
+# 4 - No hacer nada hasta que creemos las bases de datos (Sincronizar)
+firebase-realtime = {module = "com.google.firebase:firebase-database-ktx"}
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
